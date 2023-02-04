@@ -1,6 +1,5 @@
 import MainListMaker from "../MainListMaker";
 import { useState } from "react";
-import { firestore } from "../../firebaseConfig";
 
 import "./Profile.css";
 
@@ -15,7 +14,7 @@ const Profile = () => {
       adc: [],
     },
     mains: [],
-    consumesMost: "",
+    hatesMost: "",
     lovesMost: "",
   });
 
@@ -31,10 +30,9 @@ const Profile = () => {
         adc: [],
       },
       mains: [],
-      consumesMost: "",
+      hatesMost: "",
       lovesMost: "",
     });
-    firestore.collection("profiles").add({ profile });
   };
 
   const handleChampionPool = (result) => {
@@ -62,6 +60,54 @@ const Profile = () => {
         <button type="submit">Create Profile</button>
       </form>
       <MainListMaker handleChampionPool={handleChampionPool} />
+      <div className="champion-pool">
+        <h2>Champion Pool</h2>
+        <div className="top">
+          <h3>Top</h3>
+          {profile.championPool.top.map((champion) => (
+            <div key={champion.id}>{champion.name}</div>
+          ))}
+        </div>
+        <div className="jun">
+          <h3>Jungle</h3>
+          {profile.championPool.jun.map((champion) => (
+            <div key={champion.id}>{champion.name}</div>
+          ))}
+        </div>
+        <div className="mid">
+          <h3>Mid</h3>
+          {profile.championPool.mid.map((champion) => (
+            <div key={champion.id}>{champion.name}</div>
+          ))}
+        </div>
+        <div className="adc">
+          <h3>Support</h3>
+          {profile.championPool.sup.map((champion) => (
+            <div key={champion.id}>{champion.name}</div>
+          ))}
+        </div>
+        <div className="sup">
+          <h3>Adc</h3>
+          {profile.championPool.adc.map((champion) => (
+            <div key={champion.id}>{champion.name}</div>
+          ))}
+        </div>
+        {/* similarly display mid, sup, adc */}
+      </div>
+      <div className="mains">
+        <h2>Mains</h2>
+        {profile.mains.map((champion) => (
+          <div key={champion.id}>{champion.name}</div>
+        ))}
+      </div>
+      <div className="hates-most">
+        <h2>hatesMost</h2>
+        {profile.hatesMost && <div>{profile.hatesMost}</div>}
+      </div>
+      <div className="loves-most">
+        <h2>lovesMost</h2>
+        {profile.lovesMost && <div>{profile.lovesMost}</div>}
+      </div>
     </div>
   );
 };

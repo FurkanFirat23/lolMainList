@@ -6,7 +6,7 @@ import Profile from "./components/Profile";
 function App() {
   return (
     <div className="App">
-      <MainListMaker />
+      <Profile />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import "./index.css";
+
 function MainListMaker() {
   const [champions, setChampions] = useState([]);
 
@@ -17,14 +18,13 @@ function MainListMaker() {
     <DragDropContext>
       <Droppable droppableId="champion-list">
         {(provided) => (
-          <div ref={provided.innerRef}>
+          <div ref={provided.innerRef} className="champion-list">
             {champions.map((champion) => (
-              <div key={champion.id}>
+              <div key={champion.id} className="champion">
                 <img
                   src={`http://ddragon.leagueoflegends.com/cdn/12.19.1/img/champion/${champion.id}.png`}
                   alt={champion.name}
                 />
-                <span>{champion.name}</span>
               </div>
             ))}
             {provided.placeholder}
