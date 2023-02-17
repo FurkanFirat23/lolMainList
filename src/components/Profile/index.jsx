@@ -59,9 +59,9 @@ const Profile = () => {
         </label>
         <button type="submit">Create Profile</button>
       </form>
+      <h2>Champion Pool</h2>
       <MainListMaker handleChampionPool={handleChampionPool} />
       <div className="champion-pool">
-        <h2>Champion Pool</h2>
         <div className="top">
           <h3>Top</h3>
           {profile.championPool.top.map((champion) => (
@@ -92,7 +92,6 @@ const Profile = () => {
             <div key={champion.id}>{champion.name}</div>
           ))}
         </div>
-        {/* similarly display mid, sup, adc */}
       </div>
       <div className="mains">
         <h2>Mains</h2>
