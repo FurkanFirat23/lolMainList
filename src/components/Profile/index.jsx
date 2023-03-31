@@ -60,7 +60,9 @@ const Profile = () => {
         <button type="submit">Create Profile</button>
       </form>
       <h2>Champion Pool</h2>
-      <MainListMaker handleChampionPool={handleChampionPool} />
+      <div className="mainlistmaker">
+        <MainListMaker handleChampionPool={handleChampionPool} />
+      </div>
       <div className="champion-pool">
         <div className="top">
           <h3>Top</h3>

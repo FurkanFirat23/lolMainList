@@ -50,6 +50,7 @@ button[type="submit"]:hover {
 .loves-most {
   display: inline-block;
   margin: 20px;
+  border: 4px solid blue;
 }
 
 .champion-pool h2,
@@ -64,4 +65,7 @@ button[type="submit"]:hover {
 .hates-most div,
 .loves-most div {
   margin-bottom: 10px;
+}
+.mainlistmaker {
+  border: 4px solid red;
 }
